@@ -15,7 +15,7 @@ npm install --save read-more-react
 import ReadMoreReact from 'read-more-react';
 ```
 
-### Use
+#### Use
 ```
 <ReadMoreReact text={yourTextHere} />
 ```
