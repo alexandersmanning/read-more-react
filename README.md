@@ -9,16 +9,23 @@ Read More + React is a simple npm component for react that "intelligently" trunc
 ### With React
 Read More + React is extraordinarily simple to use with react. You only need to add one prop, text. 
 
+#### Install and Import
+```
+npm install --save read-more-react
+import ReadMoreReact from 'read-more-react';
+```
+
+### Use
 ```
 <ReadMoreReact text={yourTextHere} />
 ```
 
 Additional Parameters: You can customize the starting point (min), the ideal length (ideal), and the max length (max). The defaults for these are 80, 100, and 200 characters respectively. 
 | Parameter | Default Value (characters) |
-|--------|----------|
-|min|80|
-|ideal| 100|
-|max| 200|
+|-----------|----------------------------|
+| min       | 80                         |
+| ideal     | 100                        |
+| max       | 200                        |
 
 ```
 <ReadMoreReact text={yourTextHere}
