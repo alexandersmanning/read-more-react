@@ -2,8 +2,8 @@ module.exports = {
   context: __dirname,
   entry: "./demo/lib/demo.js",
   output: {
-    path: "./demo/",
-    filename: "root.js"
+    path: "./",
+    filename: "demo.js"
   },
     module: {
     loaders: [

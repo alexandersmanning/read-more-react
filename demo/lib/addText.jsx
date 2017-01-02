@@ -30,6 +30,9 @@ class AddText extends React.Component {
 			parseInt(this.state.min) > parseInt(this.state.ideal)
 			) {
 			this.setState({errors: "Please make sure the min is less than the ideal, and the ideal is less than the max"})
+		}
+		else if (this.state.text.length === 0) { 
+			this.setState({errors: "You must enter some text"});
 		} else { this.addText() }
 	}
 
@@ -48,46 +51,49 @@ class AddText extends React.Component {
 		return (
 		<form onSubmit={this.handleSubmit}
 			className="add-text-form">
-			<div>{this.state.errors}</div>
+			<div className="error-messages">{this.state.errors}</div>
 			<label htmlFor="truncate-text" hidden>Text to Truncate</label>
-			<input 
+			<textarea 
 				className="text-box" 
 				id="truncate-text" 
-				type="area"
+				rows="8"
+				cols="50"
 				placeholder="enter text here"
 				value={this.state.text}
 				onChange={this.updateField("text")}
-				/>
-			<label htmlFor="truncate-min">Minimum</label>
-			<input 
-				className="number-box" 
-				id="truncate-min" 
-				type="number"
-				value={this.state.min}
-				max={this.state.ideal}
-				onChange={this.updateField("min")}
-				/>
-			<label htmlFor="truncate-ideal">Ideal</label>
-			<input 
-				className="number-box" 
-				id="truncate-ideal" 
-				type="number"
-				value={this.state.ideal}
-				min={this.state.min}
-				max={this.state.max}
-				onChange={this.updateField("ideal")}
-				/>
-			<label htmlFor="truncate-max">Maximum</label>
-			<input 
-				className="number-box" 
-				id="truncate-max" 
-				type="number"
-				value={this.state.max}
-				min={this.state.ideal}
-				onChange={this.updateField("max")}
-				/>
+				></textarea>
+			<div className="number-container">
+				<label htmlFor="truncate-min">Minimum:</label>
+				<input 
+					className="number-box" 
+					id="truncate-min" 
+					type="number"
+					value={this.state.min}
+					max={this.state.ideal}
+					onChange={this.updateField("min")}
+					/>
+				<label htmlFor="truncate-ideal">Ideal:</label>
+				<input 
+					className="number-box" 
+					id="truncate-ideal" 
+					type="number"
+					value={this.state.ideal}
+					min={this.state.min}
+					max={this.state.max}
+					onChange={this.updateField("ideal")}
+					/>
+				<label htmlFor="truncate-max">Maximum:</label>
+				<input 
+					className="number-box" 
+					id="truncate-max" 
+					type="number"
+					value={this.state.max}
+					min={this.state.ideal}
+					onChange={this.updateField("max")}
+					/>
+				</div>
 
-			<button onClick={this.handleSubmit.bind(this)}>Add Text!</button>
+			<button onClick={this.handleSubmit.bind(this)}>add text</button>
 		</form>
 		)
 	}

@@ -21498,7 +21498,7 @@
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
-	var _index = __webpack_require__(279);
+	var _index = __webpack_require__(275);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -21522,13 +21522,26 @@
 	
 			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-			_this.state = { textGroup: [{ text: "hi, this is short" }, { text: "hi, this is a much longer sentence that needs to be cut off. This is an example of the read more/read less functionality. I hope you enjoy using read more + react!" }] };
+			_this.state = { textGroup: [] };
+			_this.setDefaults = _this.setDefaults.bind(_this);
 			return _this;
 		}
 	
 		_createClass(App, [{
 			key: 'setDefaults',
-			value: function setDefaults() {}
+			value: function setDefaults() {
+				var exampleText = ["This is a short sentence. Since it is shorter than the ideal length, it is not split up.", "This is an example of a longer sentence that needs to be split up, since it is over ideal length of 100 characters. When the sentence goes past the max allowed characters, the module will find the first punctuation character that is closest to the ideal length to cut it off.", "What I highly recommended is creating hobbies together and exploring new things together. When life becomes dull and has become a stalemate routine then this affects communication. Take a trip to the theaters for example. After the movie people usually proceed to have a discussion about it afterwards. Couples need to have new experiences and constantly push themselves out of that same day to day routine, or else that routine will slowly kill the relationship one step at a time.", "We shall not cease from exploration / And the end of all our exploring / Will be to arrive where we started / And know the place for the first time.", "It's like in the great stories, Mr. Frodo. The ones that really mattered. Full of darkness and danger they were. And sometimes you didn't want to know the end... because how could the end be happy? How could the world go back to the way it was when so much bad had happened? But in the end, it's only a passing thin... this shadow. Even darkness must pass.", "I decline to accept the end of man... I refuse to accept this. I believe that man will not merely endure: he will prevail. He is immortal, not because he alone among the creatures has an inexhaustible voice, but because he has a soul, a spirit capable of compassion and sacrifice and endurance. The poet's, the writer's, duty is to write about these things. It is his privilege to help man endure by lifting his heart, by reminding him of the courage and honor and hope and pride and compassion and pity and sacrifice which have been the glory of his past. The poet's voice need not merely be the record of man, it can be one of the props, the pillars to help him endure and prevail."];
+	
+				var textGroup = exampleText.map(function (el) {
+					return { text: el };
+				});
+				this.setState({ textGroup: textGroup });
+			}
+		}, {
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				this.setDefaults();
+			}
 		}, {
 			key: 'addToState',
 			value: function addToState(textSpec) {
@@ -21539,8 +21552,8 @@
 			key: 'render',
 			value: function render() {
 				var errorMessage = "";
-				var wordDisplay = this.state.textGroup.map(function (el) {
-					return _react2.default.createElement(_index2.default, { text: el.text,
+				var wordDisplay = this.state.textGroup.map(function (el, idx) {
+					return _react2.default.createElement(_index2.default, { key: idx, text: el.text,
 						min: el.min,
 						max: el.max,
 						ideal: el.ideal });
@@ -21551,8 +21564,8 @@
 					null,
 					_react2.default.createElement(
 						'h1',
-						null,
-						'Hello'
+						{ className: 'title' },
+						'Read More + React'
 					),
 					_react2.default.createElement(
 						'div',
@@ -21562,7 +21575,7 @@
 					_react2.default.createElement(_addText2.default, { addToState: this.addToState.bind(this) }),
 					_react2.default.createElement(
 						'ul',
-						null,
+						{ className: 'text-display-group' },
 						wordDisplay
 					)
 				);
@@ -24547,174 +24560,7 @@
 
 
 /***/ },
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AddText = function (_React$Component) {
-		_inherits(AddText, _React$Component);
-	
-		function AddText(props) {
-			_classCallCheck(this, AddText);
-	
-			var _this = _possibleConstructorReturn(this, (AddText.__proto__ || Object.getPrototypeOf(AddText)).call(this, props));
-	
-			_this.state = { text: "", min: 80, ideal: 100, max: 200, errors: "" };
-			_this.updateField = _this.updateField.bind(_this);
-			_this.setDefaults = _this.setDefaults.bind(_this);
-			_this.checkErrors = _this.checkErrors.bind(_this);
-			_this.addText = _this.addText.bind(_this);
-			return _this;
-		}
-	
-		_createClass(AddText, [{
-			key: "updateField",
-			value: function updateField(fieldName) {
-				var _this2 = this;
-	
-				return function (e) {
-					return _this2.setState(_defineProperty({}, fieldName, e.currentTarget.value));
-				};
-			}
-		}, {
-			key: "setDefaults",
-			value: function setDefaults() {
-				this.setState({ text: "", min: 80, ideal: 100, max: 200, errors: "" });
-			}
-		}, {
-			key: "handleSubmit",
-			value: function handleSubmit(e) {
-				e.preventDefault();
-				this.checkErrors();
-			}
-		}, {
-			key: "checkErrors",
-			value: function checkErrors() {
-				if (parseInt(this.state.max) < parseInt(this.state.ideal) || parseInt(this.state.min) > parseInt(this.state.ideal)) {
-					this.setState({ errors: "Please make sure the min is less than the ideal, and the ideal is less than the max" });
-				} else {
-					this.addText();
-				}
-			}
-		}, {
-			key: "addText",
-			value: function addText() {
-				this.props.addToState({
-					text: this.state.text,
-					max: parseInt(this.state.max),
-					min: parseInt(this.state.min),
-					ideal: parseInt(this.state.ideal)
-				});
-	
-				this.setDefaults();
-			}
-		}, {
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"form",
-					{ onSubmit: this.handleSubmit,
-						className: "add-text-form" },
-					_react2.default.createElement(
-						"div",
-						null,
-						this.state.errors
-					),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-text", hidden: true },
-						"Text to Truncate"
-					),
-					_react2.default.createElement("input", {
-						className: "text-box",
-						id: "truncate-text",
-						type: "area",
-						placeholder: "enter text here",
-						value: this.state.text,
-						onChange: this.updateField("text")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-min" },
-						"Minimum"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-min",
-						type: "number",
-						value: this.state.min,
-						max: this.state.ideal,
-						onChange: this.updateField("min")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-ideal" },
-						"Ideal"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-ideal",
-						type: "number",
-						value: this.state.ideal,
-						min: this.state.min,
-						max: this.state.max,
-						onChange: this.updateField("ideal")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-max" },
-						"Maximum"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-max",
-						type: "number",
-						value: this.state.max,
-						min: this.state.ideal,
-						onChange: this.updateField("max")
-					}),
-					_react2.default.createElement(
-						"button",
-						{ onClick: this.handleSubmit.bind(this) },
-						"Add Text!"
-					)
-				);
-			}
-		}]);
-	
-		return AddText;
-	}(_react2.default.Component);
-	
-	;
-	
-	exports.default = AddText;
-
-/***/ },
-/* 279 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24724,10 +24570,10 @@
 	// export default ReadMoreReact;
 	
 	
-	module.exports = __webpack_require__(280);
+	module.exports = __webpack_require__(276);
 
 /***/ },
-/* 280 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24742,7 +24588,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _trimText = __webpack_require__(281);
+	var _trimText = __webpack_require__(277);
 	
 	var _trimText2 = _interopRequireDefault(_trimText);
 	
@@ -24841,7 +24687,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 277 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24849,7 +24695,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	var PUNCTUATION_LIST = [".", ",", "!", "?", "'", "{", "}", "(", ")", "[", "]"];
+	var PUNCTUATION_LIST = [".", ",", "!", "?", "'", "{", "}", "(", ")", "[", "]", "/"];
 	
 	var trimText = function trimText(text) {
 		var min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 80;
@@ -24927,6 +24773,177 @@
 	
 	exports.default = trimText;
 
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AddText = function (_React$Component) {
+		_inherits(AddText, _React$Component);
+	
+		function AddText(props) {
+			_classCallCheck(this, AddText);
+	
+			var _this = _possibleConstructorReturn(this, (AddText.__proto__ || Object.getPrototypeOf(AddText)).call(this, props));
+	
+			_this.state = { text: "", min: 80, ideal: 100, max: 200, errors: "" };
+			_this.updateField = _this.updateField.bind(_this);
+			_this.setDefaults = _this.setDefaults.bind(_this);
+			_this.checkErrors = _this.checkErrors.bind(_this);
+			_this.addText = _this.addText.bind(_this);
+			return _this;
+		}
+	
+		_createClass(AddText, [{
+			key: "updateField",
+			value: function updateField(fieldName) {
+				var _this2 = this;
+	
+				return function (e) {
+					return _this2.setState(_defineProperty({}, fieldName, e.currentTarget.value));
+				};
+			}
+		}, {
+			key: "setDefaults",
+			value: function setDefaults() {
+				this.setState({ text: "", min: 80, ideal: 100, max: 200, errors: "" });
+			}
+		}, {
+			key: "handleSubmit",
+			value: function handleSubmit(e) {
+				e.preventDefault();
+				this.checkErrors();
+			}
+		}, {
+			key: "checkErrors",
+			value: function checkErrors() {
+				if (parseInt(this.state.max) < parseInt(this.state.ideal) || parseInt(this.state.min) > parseInt(this.state.ideal)) {
+					this.setState({ errors: "Please make sure the min is less than the ideal, and the ideal is less than the max" });
+				} else if (this.state.text.length === 0) {
+					this.setState({ errors: "You must enter some text" });
+				} else {
+					this.addText();
+				}
+			}
+		}, {
+			key: "addText",
+			value: function addText() {
+				this.props.addToState({
+					text: this.state.text,
+					max: parseInt(this.state.max),
+					min: parseInt(this.state.min),
+					ideal: parseInt(this.state.ideal)
+				});
+	
+				this.setDefaults();
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"form",
+					{ onSubmit: this.handleSubmit,
+						className: "add-text-form" },
+					_react2.default.createElement(
+						"div",
+						{ className: "error-messages" },
+						this.state.errors
+					),
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "truncate-text", hidden: true },
+						"Text to Truncate"
+					),
+					_react2.default.createElement("textarea", {
+						className: "text-box",
+						id: "truncate-text",
+						rows: "8",
+						cols: "50",
+						placeholder: "enter text here",
+						value: this.state.text,
+						onChange: this.updateField("text")
+					}),
+					_react2.default.createElement(
+						"div",
+						{ className: "number-container" },
+						_react2.default.createElement(
+							"label",
+							{ htmlFor: "truncate-min" },
+							"Minimum:"
+						),
+						_react2.default.createElement("input", {
+							className: "number-box",
+							id: "truncate-min",
+							type: "number",
+							value: this.state.min,
+							max: this.state.ideal,
+							onChange: this.updateField("min")
+						}),
+						_react2.default.createElement(
+							"label",
+							{ htmlFor: "truncate-ideal" },
+							"Ideal:"
+						),
+						_react2.default.createElement("input", {
+							className: "number-box",
+							id: "truncate-ideal",
+							type: "number",
+							value: this.state.ideal,
+							min: this.state.min,
+							max: this.state.max,
+							onChange: this.updateField("ideal")
+						}),
+						_react2.default.createElement(
+							"label",
+							{ htmlFor: "truncate-max" },
+							"Maximum:"
+						),
+						_react2.default.createElement("input", {
+							className: "number-box",
+							id: "truncate-max",
+							type: "number",
+							value: this.state.max,
+							min: this.state.ideal,
+							onChange: this.updateField("max")
+						})
+					),
+					_react2.default.createElement(
+						"button",
+						{ onClick: this.handleSubmit.bind(this) },
+						"add text"
+					)
+				);
+			}
+		}]);
+	
+		return AddText;
+	}(_react2.default.Component);
+	
+	;
+	
+	exports.default = AddText;
+
 /***/ }
 /******/ ]);
-//# sourceMappingURL=root.js.map
+//# sourceMappingURL=demo.js.map

@@ -1,4 +1,4 @@
-const PUNCTUATION_LIST = [".",",","!","?","'","{","}","(",")","[","]"];
+const PUNCTUATION_LIST = [".",",","!","?","'","{","}","(",")","[","]", "/"];
 
 const trimText = (text, min = 80, ideal = 100, max = 200) => {
 	//This main function uses two pointers to move out from the ideal, to find the first instance of a punctuation mark followed by a space. If one cannot be found, it will go with the first space closest to the ideal.

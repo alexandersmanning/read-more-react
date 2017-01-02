@@ -1,3 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FAFAFC;
+  font-family: "europa", sans-serif;
+}
+
+.title {
+  background-color: white;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  color: #286DA8;
+}
+
+
+.add-text-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3vh;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: 0 2px 4px 0 rgba(73,73,73,0.1);
+  background-color: white;
+  font-size: 16px;
+}
+
+.error-messages {
+  color: red;
+}
+
+.text-box {
+  width: 50vw;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  box-shadow: 0 18px 27px 0 rgba(0,0,0,.1);
+  margin-bottom: 3vh;
+  resize: none;
+  padding: 8px;
+  background-color: #FAFAFC;
+}
+
+.number-container {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-right: 8px;
+  margin-left: 15px;
+}
+
+.number-box {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  width: 60px;
+  text-align: center;
+  outline: none;
+  font-size: 16px;
+}
+
+.number-box:hover {
+  border-bottom: 1.5px solid #286DA8;
+  transition: border-bottom 0.2s ease-in;
+}
+
+button {
+  font-size: 16px;
+  background-color: #286DA8;
+  color: white;
+  border: 1px solid #286DA8;
+  border-radius: 4px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4591d3;
+  border: 1px solid #4591d3;
+  transition: background-color 0.5s
+}
+
 .display-text-group {
   width: 30vh;
   min-height: 25vh;
@@ -7,6 +91,37 @@
   align-items: center;
   justify-content: center;
   border: 1px solid lightgrey;
-  margin: 10px;
-  border-radius: 2%;
-};
+  margin: 40px;
+  border-radius: 4px;
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,.03);
+  background-color: white;
+}
+
+.display-text-group:hover {
+  box-shadow: 0 18px 27px 0 rgba(0,0,0,.1);
+}
+
+.text-display-group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.text-display-group {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.read-more-button {
+  display: inline-block;
+  margin-left: 3px;
+  color: #286DA8;
+  cursor: pointer;
+}
+
+.read-more-button:hover {
+  color: #4591d3;
+}
