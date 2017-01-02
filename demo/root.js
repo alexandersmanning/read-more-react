@@ -21498,11 +21498,11 @@
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
-	var _index = __webpack_require__(280);
+	var _index = __webpack_require__(279);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
-	var _addText = __webpack_require__(277);
+	var _addText = __webpack_require__(278);
 	
 	var _addText2 = _interopRequireDefault(_addText);
 	
@@ -24549,7 +24549,8 @@
 /***/ },
 /* 275 */,
 /* 276 */,
-/* 277 */
+/* 277 */,
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24713,9 +24714,7 @@
 	exports.default = AddText;
 
 /***/ },
-/* 278 */,
-/* 279 */,
-/* 280 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24725,35 +24724,59 @@
 	// export default ReadMoreReact;
 	
 	
-	module.exports = __webpack_require__(281);
+	module.exports = __webpack_require__(280);
 
 /***/ },
-/* 281 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0; i < props.length; i++) {
+				var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
+	}();
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _trimText = __webpack_require__(282);
+	var _trimText = __webpack_require__(281);
 	
 	var _trimText2 = _interopRequireDefault(_trimText);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	function _possibleConstructorReturn(self, call) {
+		if (!self) {
+			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) {
+			throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
 	
 	var ReadMoreReact = function (_React$Component) {
 		_inherits(ReadMoreReact, _React$Component);
@@ -24786,54 +24809,16 @@
 			value: function render() {
 				var displayText = void 0;
 				if (!this.state.secondaryText) {
-					displayText = _react2.default.createElement(
-						'div',
-						{ className: 'display-text-group' },
-						_react2.default.createElement(
-							'span',
-							{ className: 'displayed-text' },
-							this.state.primaryText + ' ' + this.state.secondaryText
-						)
-					);
+					displayText = _react2.default.createElement('div', { className: 'display-text-group' }, _react2.default.createElement('span', { className: 'displayed-text' }, this.state.primaryText + ' ' + this.state.secondaryText));
 				} else if (this.state.displaySecondary) {
-					displayText = _react2.default.createElement(
-						'div',
-						{ className: 'display-text-group' },
-						_react2.default.createElement(
-							'span',
-							{ className: 'displayed-text' },
-							this.state.primaryText + ' ' + this.state.secondaryText,
-							_react2.default.createElement(
-								'div',
-								{ className: 'read-more-button',
-									onClick: this.setStatus.bind(this) },
-								'read less'
-							)
-						)
-					);
+					displayText = _react2.default.createElement('div', { className: 'display-text-group' }, _react2.default.createElement('span', { className: 'displayed-text' }, this.state.primaryText + ' ' + this.state.secondaryText, _react2.default.createElement('div', { className: 'read-more-button',
+						onClick: this.setStatus.bind(this) }, 'read less')));
 				} else {
-					displayText = _react2.default.createElement(
-						'div',
-						{ className: 'display-text-group' },
-						_react2.default.createElement(
-							'span',
-							{ className: 'displayed-text' },
-							'' + this.state.primaryText,
-							_react2.default.createElement(
-								'div',
-								{ className: 'read-more-button',
-									onClick: this.setStatus.bind(this) },
-								'read more'
-							)
-						)
-					);
+					displayText = _react2.default.createElement('div', { className: 'display-text-group' }, _react2.default.createElement('span', { className: 'displayed-text' }, '' + this.state.primaryText, _react2.default.createElement('div', { className: 'read-more-button',
+						onClick: this.setStatus.bind(this) }, 'read more')));
 				}
 	
-				return _react2.default.createElement(
-					'content',
-					null,
-					displayText
-				);
+				return _react2.default.createElement('content', null, displayText);
 			}
 		}]);
 	
@@ -24841,7 +24826,6 @@
 	}(_react2.default.Component);
 	
 	exports.default = ReadMoreReact;
-	
 	
 	ReadMoreReact.propTypes = {
 		text: _react.PropTypes.string.isRequired,
@@ -24851,7 +24835,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 281 */
 /***/ function(module, exports) {
 
 	"use strict";

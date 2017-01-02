@@ -6,6 +6,12 @@
   "scripts": {
     "build": "babel source --presets babel-preset-es2015 --out-dir dist"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexandersmanning/read-more-react.git"
