@@ -21,13 +21,14 @@ import ReadMoreReact from 'read-more-react';
 ```
 
 Additional Parameters: You can customize the starting point (min), the ideal length (ideal), and the max length (max). The defaults for these are 80, 100, and 200 characters respectively. 
+
 | Parameter | Default Value (characters) |
 |-----------|----------------------------|
 | min       | 80                         |
 | ideal     | 100                        |
 | max       | 200                        |
 
-```
+```javascript
 <ReadMoreReact text={yourTextHere}
 			min={minimumLength}
 			ideal={idealLength}
@@ -40,7 +41,7 @@ Example:
 npm install --save read-more-react
 ```
 
-```
+```javascript
 import ReadMoreReact from 'read-more-react';
 
 class DemoClass extends React.Component {
