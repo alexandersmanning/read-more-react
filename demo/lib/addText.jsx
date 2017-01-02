@@ -55,6 +55,7 @@ class AddText extends React.Component {
 				id="truncate-text" 
 				type="text"
 				placeholder="enter text here"
+				value={this.state.text}
 				onChange={this.updateField("text")}
 				/>
 			<label htmlFor="truncate-min">Minimum</label>

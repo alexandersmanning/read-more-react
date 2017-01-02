@@ -21498,7 +21498,7 @@
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
-	var _index = __webpack_require__(275);
+	var _index = __webpack_require__(280);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -24547,25 +24547,188 @@
 
 
 /***/ },
-/* 275 */
+/* 275 */,
+/* 276 */,
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AddText = function (_React$Component) {
+		_inherits(AddText, _React$Component);
+	
+		function AddText(props) {
+			_classCallCheck(this, AddText);
+	
+			var _this = _possibleConstructorReturn(this, (AddText.__proto__ || Object.getPrototypeOf(AddText)).call(this, props));
+	
+			_this.state = { text: "", min: 80, ideal: 100, max: 200, errors: "" };
+			_this.updateField = _this.updateField.bind(_this);
+			_this.setDefaults = _this.setDefaults.bind(_this);
+			_this.checkErrors = _this.checkErrors.bind(_this);
+			_this.addText = _this.addText.bind(_this);
+			return _this;
+		}
+	
+		_createClass(AddText, [{
+			key: "updateField",
+			value: function updateField(fieldName) {
+				var _this2 = this;
+	
+				return function (e) {
+					return _this2.setState(_defineProperty({}, fieldName, e.currentTarget.value));
+				};
+			}
+		}, {
+			key: "setDefaults",
+			value: function setDefaults() {
+				this.setState({ text: "", min: 80, ideal: 100, max: 200, errors: "" });
+			}
+		}, {
+			key: "handleSubmit",
+			value: function handleSubmit(e) {
+				e.preventDefault();
+				this.checkErrors();
+			}
+		}, {
+			key: "checkErrors",
+			value: function checkErrors() {
+				if (parseInt(this.state.max) < parseInt(this.state.ideal) || parseInt(this.state.min) > parseInt(this.state.ideal)) {
+					this.setState({ errors: "Please make sure the min is less than the ideal, and the ideal is less than the max" });
+				} else {
+					this.addText();
+				}
+			}
+		}, {
+			key: "addText",
+			value: function addText() {
+				this.props.addToState({
+					text: this.state.text,
+					max: parseInt(this.state.max),
+					min: parseInt(this.state.min),
+					ideal: parseInt(this.state.ideal)
+				});
+	
+				this.setDefaults();
+			}
+		}, {
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"form",
+					{ onSubmit: this.handleSubmit,
+						className: "add-text-form" },
+					_react2.default.createElement(
+						"div",
+						null,
+						this.state.errors
+					),
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "truncate-text", hidden: true },
+						"Text to Truncate"
+					),
+					_react2.default.createElement("input", {
+						className: "text-box",
+						id: "truncate-text",
+						type: "text",
+						placeholder: "enter text here",
+						value: this.state.text,
+						onChange: this.updateField("text")
+					}),
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "truncate-min" },
+						"Minimum"
+					),
+					_react2.default.createElement("input", {
+						className: "number-box",
+						id: "truncate-min",
+						type: "number",
+						value: this.state.min,
+						max: this.state.ideal,
+						onChange: this.updateField("min")
+					}),
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "truncate-ideal" },
+						"Ideal"
+					),
+					_react2.default.createElement("input", {
+						className: "number-box",
+						id: "truncate-ideal",
+						type: "number",
+						value: this.state.ideal,
+						min: this.state.min,
+						max: this.state.max,
+						onChange: this.updateField("ideal")
+					}),
+					_react2.default.createElement(
+						"label",
+						{ htmlFor: "truncate-max" },
+						"Maximum"
+					),
+					_react2.default.createElement("input", {
+						className: "number-box",
+						id: "truncate-max",
+						type: "number",
+						value: this.state.max,
+						min: this.state.ideal,
+						onChange: this.updateField("max")
+					}),
+					_react2.default.createElement(
+						"button",
+						{ onClick: this.handleSubmit.bind(this) },
+						"Add Text!"
+					)
+				);
+			}
+		}]);
+	
+		return AddText;
+	}(_react2.default.Component);
+	
+	;
+	
+	exports.default = AddText;
+
+/***/ },
+/* 278 */,
+/* 279 */,
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	// import ReadMoreReact from './components/ReadMoreReact';
 	
-	var _ReadMoreReact = __webpack_require__(276);
+	// export default ReadMoreReact;
 	
-	var _ReadMoreReact2 = _interopRequireDefault(_ReadMoreReact);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _ReadMoreReact2.default;
+	
+	module.exports = __webpack_require__(281);
 
 /***/ },
-/* 276 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24580,7 +24743,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _trimText = __webpack_require__(278);
+	var _trimText = __webpack_require__(282);
 	
 	var _trimText2 = _interopRequireDefault(_trimText);
 	
@@ -24688,170 +24851,7 @@
 	};
 
 /***/ },
-/* 277 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var AddText = function (_React$Component) {
-		_inherits(AddText, _React$Component);
-	
-		function AddText(props) {
-			_classCallCheck(this, AddText);
-	
-			var _this = _possibleConstructorReturn(this, (AddText.__proto__ || Object.getPrototypeOf(AddText)).call(this, props));
-	
-			_this.state = { text: "", min: 80, ideal: 100, max: 200, errors: "" };
-			_this.updateField = _this.updateField.bind(_this);
-			_this.setDefaults = _this.setDefaults.bind(_this);
-			_this.checkErrors = _this.checkErrors.bind(_this);
-			_this.addText = _this.addText.bind(_this);
-			return _this;
-		}
-	
-		_createClass(AddText, [{
-			key: "updateField",
-			value: function updateField(fieldName) {
-				var _this2 = this;
-	
-				return function (e) {
-					return _this2.setState(_defineProperty({}, fieldName, e.currentTarget.value));
-				};
-			}
-		}, {
-			key: "setDefaults",
-			value: function setDefaults() {
-				this.setState({ text: "", min: 80, ideal: 100, max: 200, errors: "" });
-			}
-		}, {
-			key: "handleSubmit",
-			value: function handleSubmit(e) {
-				e.preventDefault();
-				this.checkErrors();
-			}
-		}, {
-			key: "checkErrors",
-			value: function checkErrors() {
-				if (parseInt(this.state.max) < parseInt(this.state.ideal) || parseInt(this.state.min) > parseInt(this.state.ideal)) {
-					this.setState({ errors: "Please make sure the min is less than the ideal, and the ideal is less than the max" });
-				} else {
-					this.addText();
-				}
-			}
-		}, {
-			key: "addText",
-			value: function addText() {
-				this.props.addToState({
-					text: this.state.text,
-					max: parseInt(this.state.max),
-					min: parseInt(this.state.min),
-					ideal: parseInt(this.state.ideal)
-				});
-	
-				this.setDefaults();
-			}
-		}, {
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"form",
-					{ onSubmit: this.handleSubmit,
-						className: "add-text-form" },
-					_react2.default.createElement(
-						"div",
-						null,
-						this.state.errors
-					),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-text", hidden: true },
-						"Text to Truncate"
-					),
-					_react2.default.createElement("input", {
-						className: "text-box",
-						id: "truncate-text",
-						type: "text",
-						placeholder: "enter text here",
-						onChange: this.updateField("text")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-min" },
-						"Minimum"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-min",
-						type: "number",
-						value: this.state.min,
-						max: this.state.ideal,
-						onChange: this.updateField("min")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-ideal" },
-						"Ideal"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-ideal",
-						type: "number",
-						value: this.state.ideal,
-						min: this.state.min,
-						max: this.state.max,
-						onChange: this.updateField("ideal")
-					}),
-					_react2.default.createElement(
-						"label",
-						{ htmlFor: "truncate-max" },
-						"Maximum"
-					),
-					_react2.default.createElement("input", {
-						className: "number-box",
-						id: "truncate-max",
-						type: "number",
-						value: this.state.max,
-						min: this.state.ideal,
-						onChange: this.updateField("max")
-					}),
-					_react2.default.createElement(
-						"button",
-						{ onClick: this.handleSubmit.bind(this) },
-						"Add Text!"
-					)
-				);
-			}
-		}]);
-	
-		return AddText;
-	}(_react2.default.Component);
-	
-	;
-	
-	exports.default = AddText;
-
-/***/ },
-/* 278 */
+/* 282 */
 /***/ function(module, exports) {
 
 	"use strict";

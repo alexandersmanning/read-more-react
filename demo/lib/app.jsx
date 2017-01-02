@@ -1,6 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import ReadMoreReact from '../../lib/index.js';
+import ReadMoreReact from '../../source/index.js';
 import AddText from './addText';
 
 class App extends React.Component {
