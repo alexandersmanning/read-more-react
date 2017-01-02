@@ -1,12 +1,12 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import ReadMoreReact from '../../dist/index.js';
+import ReadMoreReact from '../../source/index.js';
 import AddText from './addText';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {textGroup: [{text: "hi, this is short"}, {text:"hi, this is a much longer sentence that needs to be cut off. This is an example of the read more/read less functionality. I hope you enjoy!"}]}
+		this.state = {textGroup: [{text: "hi, this is short"}, {text:"hi, this is a much longer sentence that needs to be cut off. This is an example of the read more/read less functionality. I hope you enjoy using read more + react!"}]}
 	}
 
 	setDefaults() {

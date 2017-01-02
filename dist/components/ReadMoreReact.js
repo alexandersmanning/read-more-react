@@ -68,14 +68,9 @@ var ReadMoreReact = function (_React$Component) {
 					{ className: 'display-text-group' },
 					_react2.default.createElement(
 						'span',
-						{ className: 'displayed-text' },
-						this.state.primaryText + ' ' + this.state.secondaryText,
-						_react2.default.createElement(
-							'div',
-							{ className: 'read-more-button',
-								onClick: this.setStatus.bind(this) },
-							'read less'
-						)
+						{ className: 'displayed-text',
+							onClick: this.setStatus.bind(this) },
+						this.state.primaryText + ' ' + this.state.secondaryText
 					)
 				);
 			} else {

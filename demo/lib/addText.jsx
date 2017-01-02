@@ -53,7 +53,7 @@ class AddText extends React.Component {
 			<input 
 				className="text-box" 
 				id="truncate-text" 
-				type="text"
+				type="area"
 				placeholder="enter text here"
 				value={this.state.text}
 				onChange={this.updateField("text")}

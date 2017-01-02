@@ -37,10 +37,9 @@ export default class ReadMoreReact extends React.Component {
 		else if (this.state.displaySecondary) {
 			displayText = (
 			<div className="display-text-group">
-				<span className="displayed-text">
-					{`${this.state.primaryText} ${this.state.secondaryText}`}
-				<div className="read-more-button" 
-						 onClick={this.setStatus.bind(this)}>read less</div> 
+				<span className="displayed-text"
+					onClick={this.setStatus.bind(this)}>
+					{`${this.state.primaryText} ${this.state.secondaryText}`} 
 				</span>
 			</div>);
 		} else {
@@ -53,12 +52,7 @@ export default class ReadMoreReact extends React.Component {
 			</div>);
 		}
 
-
-		return (	
-			<content>
-				{ displayText }
-			</content>
-			);
+		return displayText;
 	}
 }
 
