@@ -15,7 +15,7 @@ npm install --save read-more-react
 import ReadMoreReact from 'read-more-react';
 ```
 
-### Use
+#### Use
 ```
 <ReadMoreReact text={yourTextHere} />
 ```
@@ -46,12 +46,14 @@ import ReadMoreReact from 'read-more-react';
 
 class DemoClass extends React.Component {
 
-	render() (
-		<ReadMoreReact text={yourTextHere}
-			min={minimumLength}
-			ideal={idealLength}
-			max={maxLength} />
-	)
+	render() { 
+		return (
+			<ReadMoreReact text={yourTextHere}
+				min={minimumLength}
+				ideal={idealLength}
+				max={maxLength} />
+		) 
+	}
 }
 ```
 
