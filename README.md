@@ -50,13 +50,11 @@ class DemoClass extends React.Component {
 
 	render() { 
 		return (
-			<ReadMoreReact
-                text={yourTextHere}
+			<ReadMoreReact text={yourTextHere}
 				min={minimumLength}
 				ideal={idealLength}
 				max={maxLength}
-				readMoreText="click here to read more"
-            />
+				readMoreText="click here to read more"/>
 		) 
 	}
 }
