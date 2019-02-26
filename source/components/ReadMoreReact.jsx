@@ -5,7 +5,7 @@ import trimText from '../utils/trimText'
 export default class ReadMoreReact extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = { displaySecondary: false, primaryText: "", secondaryText: "" };
+		this.state = { displaySecondary: false, primaryText: "", secondaryText: "", readMoreText: this.props.readMoreText };
 	}
 
 	componentDidMount() {
@@ -48,7 +48,7 @@ export default class ReadMoreReact extends React.Component {
 				<span className="displayed-text">
 						{`${this.state.primaryText}`}
 				<div className="read-more-button"
-						 onClick={this.setStatus.bind(this)}>read more</div>
+						 onClick={this.setStatus.bind(this)}>{this.state.readMoreText}</div>
 				</span>
 			</div>);
 		}
@@ -61,5 +61,10 @@ ReadMoreReact.propTypes = {
   text: PropTypes.string.isRequired,
   min: PropTypes.number,
   ideal: PropTypes.number,
-  max: PropTypes.number
+  max: PropTypes.number,
+	readMoreText: PropTypes.string,
+};
+
+ReadMoreReact.defaultProps = {
+  readMoreText: "read more",
 };
