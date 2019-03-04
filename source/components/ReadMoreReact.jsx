@@ -40,13 +40,13 @@ export default class ReadMoreReact extends React.Component {
 			<div className="display-text-group">
 				<span className="displayed-text"
 					onClick={this.setStatus.bind(this)}>
-					{`${this.state.primaryText} ${this.state.secondaryText}`} 
+					{`${this.state.primaryText} ${this.state.secondaryText}`}
 				</span>
 			</div>);
 		} else {
 			displayText = (<div className="display-text-group">
 				<span className="displayed-text">
-						{`${this.state.primaryText}`}
+          {this.state.primaryText}<span style={{ display: "none"}}>{this.state.secondaryText}</span>
 				<div className="read-more-button"
 						 onClick={this.setStatus.bind(this)}>{this.state.readMoreText}</div>
 				</span>

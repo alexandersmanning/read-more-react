@@ -5,7 +5,7 @@ module.exports = {
     path: "./",
     filename: "demo.js"
   },
-    module: {
+  module: {
     loaders: [
       {
         test: [/\.jsx?$/, /\.js?$/],

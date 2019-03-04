@@ -25145,7 +25145,12 @@
 						_react2.default.createElement(
 							'span',
 							{ className: 'displayed-text' },
-							'' + this.state.primaryText,
+							this.state.primaryText,
+							_react2.default.createElement(
+								'span',
+								{ style: { display: "none" } },
+								this.state.secondaryText
+							),
 							_react2.default.createElement(
 								'div',
 								{ className: 'read-more-button',
