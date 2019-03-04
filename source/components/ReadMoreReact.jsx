@@ -8,7 +8,7 @@ export default class ReadMoreReact extends React.Component {
 		this.state = { displaySecondary: false, primaryText: "", secondaryText: "", readMoreText: this.props.readMoreText };
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		let args = [
 			this.props.text, 
 			this.props.min,
