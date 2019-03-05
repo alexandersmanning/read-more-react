@@ -1,25 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import trimText from '../utils/trimText'
 
 export default class ReadMoreReact extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = { displaySecondary: false, primaryText: "", secondaryText: "", readMoreText: this.props.readMoreText };
+
+    let args = [
+      this.props.text,
+      this.props.min,
+      this.props.ideal,
+      this.props.max
+    ];
+
+    const [primaryText, secondaryText] = trimText(...args);
+		this.state = { displaySecondary: false, primaryText , secondaryText, readMoreText: this.props.readMoreText };
 	}
 
-	componentDidMount() {
-		let args = [
-			this.props.text, 
-			this.props.min,
-			this.props.ideal, 
-			this.props.max
-		];
-
-		let textBreakdown = trimText(...args);
-		this.setState({primaryText: textBreakdown[0], secondaryText: textBreakdown[1]});
-	}
-	
 	setStatus() {
 		let display = !this.state.displaySecondary;
 		this.setState({displaySecondary: display});

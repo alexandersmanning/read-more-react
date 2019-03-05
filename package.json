@@ -1,6 +1,6 @@
 {
   "name": "read-more-react",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A moderately intelligent truncation of text for react",
   "main": "./dist/index.js",
   "scripts": {

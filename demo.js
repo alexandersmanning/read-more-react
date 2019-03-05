@@ -25065,6 +25065,8 @@
 		value: true
 	});
 	
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
@@ -25075,9 +25077,9 @@
 	
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
-	var _trimText = __webpack_require__(286);
+	var _trimText3 = __webpack_require__(286);
 	
-	var _trimText2 = _interopRequireDefault(_trimText);
+	var _trimText4 = _interopRequireDefault(_trimText3);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -25095,19 +25097,18 @@
 	
 			var _this = _possibleConstructorReturn(this, (ReadMoreReact.__proto__ || Object.getPrototypeOf(ReadMoreReact)).call(this, props));
 	
-			_this.state = { displaySecondary: false, primaryText: "", secondaryText: "", readMoreText: _this.props.readMoreText };
+			var args = [_this.props.text, _this.props.min, _this.props.ideal, _this.props.max];
+	
+			var _trimText = _trimText4.default.apply(undefined, args),
+			    _trimText2 = _slicedToArray(_trimText, 2),
+			    primaryText = _trimText2[0],
+			    secondaryText = _trimText2[1];
+	
+			_this.state = { displaySecondary: false, primaryText: primaryText, secondaryText: secondaryText, readMoreText: _this.props.readMoreText };
 			return _this;
 		}
 	
 		_createClass(ReadMoreReact, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				var args = [this.props.text, this.props.min, this.props.ideal, this.props.max];
-	
-				var textBreakdown = _trimText2.default.apply(undefined, args);
-				this.setState({ primaryText: textBreakdown[0], secondaryText: textBreakdown[1] });
-			}
-		}, {
 			key: 'setStatus',
 			value: function setStatus() {
 				var display = !this.state.displaySecondary;
