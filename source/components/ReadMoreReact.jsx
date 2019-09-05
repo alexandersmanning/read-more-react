@@ -14,7 +14,7 @@ export default class ReadMoreReact extends React.Component {
     ];
 
     const [primaryText, secondaryText] = trimText(...args);
-		this.state = { displaySecondary: false, primaryText , secondaryText, readMoreText: this.props.readMoreText };
+		this.state = { displaySecondary: false, primaryText , secondaryText, readMoreText: this.props.readMoreText ,readLessText: this.props.readLessText };
 	}
 
 	setStatus() {
@@ -38,6 +38,8 @@ export default class ReadMoreReact extends React.Component {
 				<span className="displayed-text"
 					onClick={this.setStatus.bind(this)}>
 					{`${this.state.primaryText} ${this.state.secondaryText}`}
+					<div className="read-less-button"
+						 onClick={this.setStatus.bind(this)}>{this.state.readLessText}</div>
 				</span>
 			</div>);
 		} else {
@@ -60,8 +62,11 @@ ReadMoreReact.propTypes = {
   ideal: PropTypes.number,
   max: PropTypes.number,
 	readMoreText: PropTypes.string,
+	readLessText: PropTypes.string,
+
 };
 
 ReadMoreReact.defaultProps = {
   readMoreText: "read more",
+  readLessText: "read more",
 };
