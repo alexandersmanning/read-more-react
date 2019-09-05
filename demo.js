@@ -25104,7 +25104,7 @@
 			    primaryText = _trimText2[0],
 			    secondaryText = _trimText2[1];
 	
-			_this.state = { displaySecondary: false, primaryText: primaryText, secondaryText: secondaryText, readMoreText: _this.props.readMoreText };
+			_this.state = { displaySecondary: false, primaryText: primaryText, secondaryText: secondaryText, readMoreText: _this.props.readMoreText, readLessText: _this.props.readLessText };
 			return _this;
 		}
 	
@@ -25136,7 +25136,13 @@
 							'span',
 							{ className: 'displayed-text',
 								onClick: this.setStatus.bind(this) },
-							this.state.primaryText + ' ' + this.state.secondaryText
+							this.state.primaryText + ' ' + this.state.secondaryText,
+							_react2.default.createElement(
+								'div',
+								{ className: 'read-less-button',
+									onClick: this.setStatus.bind(this) },
+								this.state.readLessText
+							)
 						)
 					);
 				} else {
@@ -25177,11 +25183,14 @@
 		min: _propTypes2.default.number,
 		ideal: _propTypes2.default.number,
 		max: _propTypes2.default.number,
-		readMoreText: _propTypes2.default.string
+		readMoreText: _propTypes2.default.string,
+		readLessText: _propTypes2.default.string
+	
 	};
 	
 	ReadMoreReact.defaultProps = {
-		readMoreText: "read more"
+		readMoreText: "read more",
+		readLessText: "read less"
 	};
 
 /***/ }),

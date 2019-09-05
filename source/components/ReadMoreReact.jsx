@@ -68,5 +68,5 @@ ReadMoreReact.propTypes = {
 
 ReadMoreReact.defaultProps = {
   readMoreText: "read more",
-  readLessText: "read more",
+  readLessText: "read less",
 };

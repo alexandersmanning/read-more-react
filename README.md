@@ -28,13 +28,17 @@ Additional Parameters: You can customize the starting point (min), the ideal len
 | ideal              | 100                        |
 | max                | 200                        |
 | readMoreText       | "read more"                |
+| readLessText       | "read Less"                |
+
 
 ```javascript
 <ReadMoreReact text={yourTextHere}
 			min={minimumLength}
 			ideal={idealLength}
 			max={maxLength}
-			readMoreText={readMoreText}/>
+			readMoreText={readMoreText}
+			readLessText={readLessText}
+			/>
 ```
 
 Example:

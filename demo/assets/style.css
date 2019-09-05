@@ -115,13 +115,13 @@ button:hover {
   flex-wrap: wrap;
 }
 
-.read-more-button {
+.read-more-button,.read-less-button {
   display: inline-block;
   margin-left: 3px;
   color: #286DA8;
   cursor: pointer;
 }
 
-.read-more-button:hover {
+.read-more-button:hover,.read-less-button:hover {
   color: #4591d3;
 }
