@@ -2,23 +2,25 @@ module.exports = {
   context: __dirname,
   entry: "./demo/lib/demo.js",
   output: {
-    path: "./",
+    path: `${__dirname}/`,
     filename: "demo.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: [/\.jsx?$/, /\.js?$/],
         exclude: /(node_modules)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/env', '@babel/react']
+          },
+        }
       }
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.js', '.jsx' ]
+    extensions: ['.js', '.jsx' ]
   },
 };
